@@ -20,35 +20,36 @@ include "../../includes/header.php";
 
 <div class="page">
 
-<h1>Add Membership Plan</h1>
+<h1>Member Check In</h1>
 
 <form action="store.php" method="POST" class="member-form">
 
-<label>Plan Name</label>
-<input type="text" name="plan_name" required>
+<label>Select Member</label>
 
-<label>Duration (Days)</label>
-<input type="number" name="duration_days" required>
+<select name="member_id">
 
-<label>Price</label>
-<input type="number" step="0.01" name="price" required>
+<?php
 
-<label>Description</label>
-<textarea name="description"></textarea>
+$members=mysqli_query($conn,
+"SELECT * FROM members WHERE status='active'");
 
-<label>Status</label>
+while($m=mysqli_fetch_assoc($members)){
 
-<select name="status">
+?>
 
-<option value="active">Active</option>
+<option value="<?= $m['member_id']?>">
 
-<option value="archived">Archived</option>
+<?= $m['first_name']." ".$m['last_name'] ?>
+
+</option>
+
+<?php } ?>
 
 </select>
 
 <button class="btn">
 
-Save Plan
+Check In
 
 </button>
 

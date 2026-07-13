@@ -14,81 +14,71 @@
 
     </div>
 
-    <nav>
+<nav>
 
-        <a href="../dashboard/dashboard.php" class="active">
+    <a href="/fittrack/dashboard/dashboard.php" class="active">
 
-            <span class="material-symbols-rounded">
-                dashboard
-            </span>
+        <span class="material-symbols-rounded">
+            dashboard
+        </span>
 
-            Dashboard
+        Dashboard
 
-        </a>
+    </a>
 
-        <a href="/fittrack/modules/plans/index.php">
+    <a href="/fittrack/modules/members/index.php">
 
-            <span class="material-symbols-rounded">
-                group
-            </span>
+        <span class="material-symbols-rounded">
+            group
+        </span>
 
-            Members
+        Members
 
-        </a>
+    </a>
 
-        <a href="/fittrack/modules/plans/index.php">
+    <a href="/fittrack/modules/plans/index.php">
 
-            <span class="material-symbols-rounded">
-                fitness_center
-            </span>
+        <span class="material-symbols-rounded">
+            workspace_premium
+        </span>
 
-            Trainers
+        Plans
 
-        </a>
+    </a>
 
-        <a href="/fittrack/modules/plans/index.php">
+    <a href="/fittrack/modules/payments/index.php">
 
-            <span class="material-symbols-rounded">
-                workspace_premium
-            </span>
+        <span class="material-symbols-rounded">
+            payments
+        </span>
 
-            Plans
+        Payments
 
-        </a>
+    </a>
 
-        <a href="/fittrack/modules/plans/index.php">
+    <a href="/fittrack/modules/attendance/index.php">
 
-            <span class="material-symbols-rounded">
-                payments
-            </span>
+        <span class="material-symbols-rounded">
+            event_available
+        </span>
 
-            Payments
+        Attendance
 
-        </a>
+    </a>
 
-        <a href="/fittrack/modules/plans/index.php">
+    <a href="/fittrack/modules/reports/index.php">
 
-            <span class="material-symbols-rounded">
-                event_available
-            </span>
+        <span class="material-symbols-rounded">
+            monitoring
+        </span>
 
-            Attendance
+        Reports
 
-        </a>
+    </a>
 
-        <a href="/fittrack/modules/plans/index.php">
+</nav>
 
-            <span class="material-symbols-rounded">
-                monitoring
-            </span>
-
-            Reports
-
-        </a>
-
-    </nav>
-
-    <a href="../logout.php" class="logout">
+    <a href="/fittrack/logout.php" class="logout">
 
         <span class="material-symbols-rounded">
 

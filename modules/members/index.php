@@ -6,7 +6,7 @@ include "../../includes/header.php";
 ?>
 
 <link rel="stylesheet" href="../../assets/css/dashboard.css">
-
+<link rel="stylesheet" href="../../assets/css/style.css">
 <div class="layout">
 
     <?php include "../../includes/sidebar.php"; ?>
@@ -27,8 +27,10 @@ include "../../includes/header.php";
 
             </div>
 
-            <table>
+            <div class="table-card">
 
+            <table>
+                
                 <thead>
 
                     <tr>
@@ -68,18 +70,17 @@ include "../../includes/header.php";
 
                     <td>
 
-                        <a href="edit.php?id=<?= $row['member_id'] ?>">Edit</a>
+                       <a href="edit.php?id=<?= $row['member_id'] ?>" class="btn-edit">
+               Edit  
+    </a>
 
-                        |
+    <a href="delete.php?id=<?= $row['member_id'] ?>"
+       class="btn-delete"
+       onclick="return confirm('Delete this member?')">
+        Delete
+    </a>
 
-                        <a href="delete.php?id=<?= $row['member_id'] ?>"
-                        onclick="return confirm('Delete this member?')">
-
-                        Delete
-
-                        </a>
-
-                    </td>
+</td>
 
                 </tr>
 

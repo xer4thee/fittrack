@@ -1,112 +1,97 @@
 <?php
-
 require "../../config/session.php";
 require "../../config/database.php";
 
 include "../../includes/header.php";
-
 ?>
 
-<link rel="stylesheet"
-href="../../assets/css/dashboard.css">
+<link rel="stylesheet" href="../../assets/css/dashboard.css">
 
 <div class="layout">
 
-<?php include "../../includes/sidebar.php"; ?>
+    <?php include "../../includes/sidebar.php"; ?>
 
-<div class="content">
+    <div class="content">
 
-<?php include "../../includes/navbar.php"; ?>
+        <?php include "../../includes/navbar.php"; ?>
 
-<div class="page">
+        <div class="page">
 
-<div class="page-header">
+            <div class="page-header">
 
-<h1>Members</h1>
+                <h1>Members</h1>
 
-<a href="create.php" class="btn">
+                <a href="create.php" class="btn">
+                    + Add Member
+                </a>
 
-+ Add Member
+            </div>
 
-</a>
+            <table>
 
-</div>
+                <thead>
 
-<table>
+                    <tr>
 
-<thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Gender</th>
+                        <th>Status</th>
+                        <th>Action</th>
 
-<tr>
+                    </tr>
 
-<th>ID</th>
+                </thead>
 
-<th>Name</th>
+                <tbody>
 
-<th>Email</th>
+                <?php
 
-<th>Phone</th>
+                $members = mysqli_query($conn,"SELECT * FROM members ORDER BY member_id DESC");
 
-<th>Status</th>
+                while($row = mysqli_fetch_assoc($members)){
 
-<th>Trainer</th>
+                ?>
 
-<th>Actions</th>
+                <tr>
 
-</tr>
+                    <td><?= htmlspecialchars($row['first_name']." ".$row['last_name']) ?></td>
 
-</thead>
+                    <td><?= htmlspecialchars($row['email']) ?></td>
 
-<tbody>
+                    <td><?= htmlspecialchars($row['phone']) ?></td>
 
-<?php
+                    <td><?= htmlspecialchars($row['gender']) ?></td>
 
-$sql="SELECT * FROM members";
+                    <td><?= htmlspecialchars($row['status']) ?></td>
 
-$result=mysqli_query($conn,$sql);
+                    <td>
 
-while($row=mysqli_fetch_assoc($result)){
+                        <a href="edit.php?id=<?= $row['member_id'] ?>">Edit</a>
 
-?>
+                        |
 
-<tr>
+                        <a href="delete.php?id=<?= $row['member_id'] ?>"
+                        onclick="return confirm('Delete this member?')">
 
-<td><?= $row['member_id']?></td>
+                        Delete
 
-<td><?= $row['first_name']?> <?= $row['last_name']?></td>
+                        </a>
 
-<td><?= $row['email']?></td>
+                    </td>
 
-<td><?= $row['phone']?></td>
+                </tr>
 
-<td><?= $row['status']?></td>
+                <?php } ?>
 
-<td><?= $row['trainer_id']?></td>
+                </tbody>
 
-<td>
+            </table>
 
-<a href="edit.php?id=<?= $row['member_id']?>">Edit</a>
+        </div>
 
-|
-
-<a href="delete.php?id=<?= $row['member_id']?>">
-
-Delete
-
-</a>
-
-</td>
-
-</tr>
-
-<?php } ?>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 

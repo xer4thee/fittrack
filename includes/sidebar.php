@@ -26,7 +26,7 @@
 
         </a>
 
-        <a href="/fittrack/modules/members/index.php">
+        <a href="/fittrack/modules/plans/index.php">
 
             <span class="material-symbols-rounded">
                 group
@@ -36,7 +36,7 @@
 
         </a>
 
-        <a href="/fittrack/modules/members/index.php">
+        <a href="/fittrack/modules/plans/index.php">
 
             <span class="material-symbols-rounded">
                 fitness_center
@@ -46,7 +46,7 @@
 
         </a>
 
-        <a href="/fittrack/modules/members/index.php">
+        <a href="/fittrack/modules/plans/index.php">
 
             <span class="material-symbols-rounded">
                 workspace_premium
@@ -56,7 +56,7 @@
 
         </a>
 
-        <a href="/fittrack/modules/members/index.php">
+        <a href="/fittrack/modules/plans/index.php">
 
             <span class="material-symbols-rounded">
                 payments
@@ -66,7 +66,7 @@
 
         </a>
 
-        <a href="/fittrack/modules/members/index.php">
+        <a href="/fittrack/modules/plans/index.php">
 
             <span class="material-symbols-rounded">
                 event_available
@@ -76,7 +76,7 @@
 
         </a>
 
-        <a href="/fittrack/modules/members/index.php">
+        <a href="/fittrack/modules/plans/index.php">
 
             <span class="material-symbols-rounded">
                 monitoring

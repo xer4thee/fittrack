@@ -95,6 +95,14 @@ $todayAttendance = mysqli_fetch_assoc(
 
 </div>
 
+<p style="margin-top:30px;color:#6b7280;">
+
+Generated on
+
+<?= date("F j, Y h:i A"); ?>
+
+</p>
+
 </div>
 
 </div>

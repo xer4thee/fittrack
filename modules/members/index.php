@@ -27,10 +27,56 @@ include "../../includes/header.php";
 
             </div>
 
+            <?php if(isset($_GET['success'])): ?>
+
+<div class="success-message">
+
+<form method="GET" class="search-form">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search by name..."
+        value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+
+    <button class="btn">
+
+        Search
+
+    </button>
+
+</form>
+
+    <?php
+
+    switch($_GET['success']){
+
+        case "added":
+            echo "✅ Member added successfully!";
+            break;
+
+        case "updated":
+            echo "✏️ Member updated successfully!";
+            break;
+
+        case "deleted":
+            echo "🗑️ Member deleted successfully!";
+            break;
+
+        default:
+            echo "Operation completed successfully!";
+    }
+
+    ?>
+
+</div>
+
+<?php endif; ?>
+
             <div class="table-card">
 
             <table>
-                
+
                 <thead>
 
                     <tr>
@@ -50,7 +96,43 @@ include "../../includes/header.php";
 
                 <?php
 
-                $members = mysqli_query($conn,"SELECT * FROM members ORDER BY member_id DESC");
+               if(isset($_GET['search']) && $_GET['search'] != ""){
+
+    $search = mysqli_real_escape_string($conn,$_GET['search']);
+
+    $sql = "
+
+    SELECT *
+
+    FROM members
+
+    WHERE
+
+    first_name LIKE '%$search%'
+
+    OR
+
+    last_name LIKE '%$search%'
+
+    ORDER BY member_id DESC
+
+    ";
+
+}else{
+
+    $sql = "
+
+    SELECT *
+
+    FROM members
+
+    ORDER BY member_id DESC
+
+    ";
+
+}
+
+$members = mysqli_query($conn,$sql);
 
                 while($row = mysqli_fetch_assoc($members)){
 

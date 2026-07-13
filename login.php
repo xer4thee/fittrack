@@ -13,6 +13,11 @@
     <h1>FitTrack</h1>
 
     <p>Train Hard. Track Smarter.</p>
+    <p class="system-version">
+
+Gym Membership Management System
+
+</p>
 
 </div>
 

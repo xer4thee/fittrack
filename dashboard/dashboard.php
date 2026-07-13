@@ -63,7 +63,7 @@ href="../assets/css/dashboard.css">
 
             <h2><?= $totalMembers ?></h2>
 
-            <small>+18 this month</small>
+            <small>Live Member Count</small>
 
         </div>
 
@@ -78,7 +78,7 @@ href="../assets/css/dashboard.css">
 
             <h2>₱<?= number_format($monthlyRevenue,2) ?></h2>
 
-            <small>+12% from June</small>
+            <small>Updated Automatically</small>
 
         </div>
 
@@ -92,7 +92,7 @@ href="../assets/css/dashboard.css">
 
             <h2><?= $todayAttendance ?></h2>
 
-            <small>Currently inside gym</small>
+            <small>Today's Check-ins</small>
 
         </div>
 
@@ -106,11 +106,92 @@ href="../assets/css/dashboard.css">
 
             <h2><?= $expiring ?></h2>
 
-            <small>Within 7 days</small>
+            <small>Upcoming Renewals</small>
 
         </div>
 
     </div>
+
+</section>
+<section class="dashboard">
+
+<div class="table-card">
+
+<h2 style="padding:25px;">
+
+Recent Activity
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Activity</th>
+
+<th>Date</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+Member records managed through the system
+
+</td>
+
+<td>
+
+<?= date("M d, Y") ?>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Membership payments recorded
+
+</td>
+
+<td>
+
+<?= date("M d, Y") ?>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Attendance logs updated
+
+</td>
+
+<td>
+
+<?= date("M d, Y") ?>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
 
 </section>
 

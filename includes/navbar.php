@@ -2,59 +2,36 @@
 
 $hour = date("H");
 
-$greeting = "Good Evening";
-
 if($hour < 12){
 
-$greeting = "Good Morning";
+    $greeting = "Good Morning";
 
 }elseif($hour < 18){
 
-$greeting = "Good Afternoon";
+    $greeting = "Good Afternoon";
+
+}else{
+
+    $greeting = "Good Evening";
 
 }
 
 ?>
 
-<div>
-
-<h2>
-
-<?= $greeting ?>,
-
-<?= htmlspecialchars($_SESSION['full_name']) ?> 👋
-
-</h2>
-
-<small>
-
-<?= date("l, F j, Y"); ?>
-
-</small>
-
-</div>
 <nav class="navbar">
 
     <div>
 
         <h2>
 
-Good <?= date("H") < 12 ? "Morning" : (date("H") < 18 ? "Afternoon" : "Evening"); ?>,
+            <?= $greeting ?>,
+            <?= htmlspecialchars($_SESSION["full_name"]) ?> 👋
 
-<?= htmlspecialchars($_SESSION['full_name']); ?> 👋
-
-</h2>
-
-<small>
-
-<?= date("l, F j, Y"); ?>
-
-</small>
+        </h2>
 
         <small>
 
-            Welcome back,
-            <?= htmlspecialchars($_SESSION["full_name"]) ?> 👋
+            <?= date("l, F j, Y"); ?>
 
         </small>
 

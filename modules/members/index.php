@@ -7,100 +7,127 @@ include "../../includes/header.php";
 
 <link rel="stylesheet" href="../../assets/css/dashboard.css">
 <link rel="stylesheet" href="../../assets/css/style.css">
+
 <div class="layout">
 
-    <?php include "../../includes/sidebar.php"; ?>
+<?php include "../../includes/sidebar.php"; ?>
 
-    <div class="content">
+<div class="content">
 
-        <?php include "../../includes/navbar.php"; ?>
+<?php include "../../includes/navbar.php"; ?>
 
-        <div class="page">
+<div class="page-top">
 
-            <div class="page-header">
+    <div>
 
-                <h1>Members</h1>
+        <h1>Members Management</h1>
 
-                <a href="create.php" class="btn">
-                    + Add Member
-                </a>
+        <p>
+            Manage registered gym members efficiently.
+        </p>
 
-            </div>
+    </div>
 
-            <?php if(isset($_GET['success'])): ?>
+    <div>
 
-<div class="success-message">
+        <a href="create.php" class="btn">
 
-<form method="GET" class="search-form">
+            <span class="material-symbols-rounded">
 
-    <input
-        type="text"
-        name="search"
-        placeholder="Search by name..."
-        value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+            person_add
 
-    <button class="btn">
+            </span>
 
-        Search
+            Add Member
 
-    </button>
+        </a>
 
-</form>
-
-    <?php
-
-    switch($_GET['success']){
-
-        case "added":
-            echo "✅ Member added successfully!";
-            break;
-
-        case "updated":
-            echo "✏️ Member updated successfully!";
-            break;
-
-        case "deleted":
-            echo "🗑️ Member deleted successfully!";
-            break;
-
-        default:
-            echo "Operation completed successfully!";
-    }
-
-    ?>
+    </div>
 
 </div>
 
-<?php endif; ?>
+    <?php if(isset($_GET['success'])): ?>
 
-            <div class="table-card">
+    <div class="success-message">
 
-            <table>
+        <?php
 
-                <thead>
+        switch($_GET['success']){
 
-                    <tr>
+            case "added":
+                echo "✅ Member added successfully!";
+                break;
 
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Gender</th>
-                        <th>Status</th>
-                        <th>Action</th>
+            case "updated":
+                echo "✏️ Member updated successfully!";
+                break;
 
-                    </tr>
+            case "deleted":
+                echo "🗑️ Member deleted successfully!";
+                break;
 
-                </thead>
+        }
 
-                <tbody>
+        ?>
 
-                <?php
+    </div>
 
-               if(isset($_GET['search']) && $_GET['search'] != ""){
+    <?php endif; ?>
 
-    $search = mysqli_real_escape_string($conn,$_GET['search']);
+  <form method="GET" class="search-form">
 
-    $sql = "
+<div class="search-box">
+
+<span class="material-symbols-rounded">
+
+search
+
+</span>
+
+<input
+type="text"
+name="search"
+placeholder="Search members..."
+value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+
+</div>
+
+<button class="btn">
+
+Search
+
+</button>
+
+</form>
+
+    <div class="table-card">
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+<?php
+
+if(isset($_GET['search']) && $_GET['search']!=""){
+
+    $search=mysqli_real_escape_string($conn,$_GET['search']);
+
+    $sql="
 
     SELECT *
 
@@ -114,67 +141,126 @@ include "../../includes/header.php";
 
     last_name LIKE '%$search%'
 
-    ORDER BY member_id DESC
-
-    ";
+    ORDER BY member_id DESC";
 
 }else{
 
-    $sql = "
+    $sql="
 
     SELECT *
 
     FROM members
 
-    ORDER BY member_id DESC
-
-    ";
+    ORDER BY member_id DESC";
 
 }
 
-$members = mysqli_query($conn,$sql);
+$result=mysqli_query($conn,$sql);
 
-                while($row = mysqli_fetch_assoc($members)){
+if(mysqli_num_rows($result)==0){
 
-                ?>
+?>
 
-                <tr>
+<tr>
 
-                    <td><?= htmlspecialchars($row['first_name']." ".$row['last_name']) ?></td>
+<td colspan="6" style="text-align:center;padding:30px;">
 
-                    <td><?= htmlspecialchars($row['email']) ?></td>
-
-                    <td><?= htmlspecialchars($row['phone']) ?></td>
-
-                    <td><?= htmlspecialchars($row['gender']) ?></td>
-
-                    <td><?= htmlspecialchars($row['status']) ?></td>
-
-                    <td>
-
-                       <a href="edit.php?id=<?= $row['member_id'] ?>" class="btn-edit">
-               Edit  
-    </a>
-
-    <a href="delete.php?id=<?= $row['member_id'] ?>"
-       class="btn-delete"
-       onclick="return confirm('Delete this member?')">
-        Delete
-    </a>
+No members found.
 
 </td>
 
-                </tr>
+</tr>
 
-                <?php } ?>
+<?php
 
-                </tbody>
+}
 
-            </table>
+while($row=mysqli_fetch_assoc($result)){
 
-        </div>
+?>
 
-    </div>
+<tr>
+
+<td>
+
+<?= htmlspecialchars($row['first_name']." ".$row['last_name']) ?>
+
+</td>
+
+<td>
+
+<?= htmlspecialchars($row['email']) ?>
+
+</td>
+
+<td>
+
+<?= htmlspecialchars($row['phone']) ?>
+
+</td>
+
+<td>
+
+<?= ucfirst($row['gender']) ?>
+
+</td>
+
+<td>
+
+<span class="status status-active">
+
+<?= ucfirst($row['status']) ?>
+
+</span>
+
+</td>
+
+<td>
+
+<a
+class="btn-edit"
+href="edit.php?id=<?= $row['member_id'] ?>">
+
+<span class="material-symbols-rounded">
+
+edit
+
+</span>
+
+Edit
+
+</a>
+
+<a
+class="btn-delete"
+href="delete.php?id=<?= $row['member_id'] ?>"
+onclick="return confirm('Delete this member?')">
+
+<span class="material-symbols-rounded">
+
+delete
+
+</span>
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+<?php } ?>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 

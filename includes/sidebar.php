@@ -2,91 +2,95 @@
 
     <div class="brand">
 
-        <img src="/fittrack/assets/images/logo.svg">
+        <img src="/fittrack/assets/images/logo.svg" alt="FitTrack Logo">
 
         <div>
 
             <h2>FitTrack</h2>
 
-            <span>Gym Management</span>
+            <span class="brand-subtitle">
+                Gym Membership System
+            </span>
 
         </div>
 
     </div>
 
-<nav>
+    <div class="menu-title">
+        MAIN MENU
+    </div>
 
-    <a href="/fittrack/dashboard/dashboard.php" class="active">
+    <nav>
 
-        <span class="material-symbols-rounded">
-            dashboard
-        </span>
+        <a href="/fittrack/dashboard/dashboard.php" class="active">
 
-        Dashboard
+            <span class="material-symbols-rounded">
+                dashboard
+            </span>
 
-    </a>
+            <span>Dashboard</span>
 
-    <a href="/fittrack/modules/members/index.php">
+        </a>
 
-        <span class="material-symbols-rounded">
-            group
-        </span>
+        <a href="/fittrack/modules/members/index.php">
 
-        Members
+            <span class="material-symbols-rounded">
+                group
+            </span>
 
-    </a>
+            <span>Members</span>
 
-    <a href="/fittrack/modules/plans/index.php">
+        </a>
 
-        <span class="material-symbols-rounded">
-            workspace_premium
-        </span>
+        <a href="/fittrack/modules/plans/index.php">
 
-        Plans
+            <span class="material-symbols-rounded">
+                workspace_premium
+            </span>
 
-    </a>
+            <span>Plans</span>
 
-    <a href="/fittrack/modules/payments/index.php">
+        </a>
 
-        <span class="material-symbols-rounded">
-            payments
-        </span>
+        <a href="/fittrack/modules/payments/index.php">
 
-        Payments
+            <span class="material-symbols-rounded">
+                payments
+            </span>
 
-    </a>
+            <span>Payments</span>
 
-    <a href="/fittrack/modules/attendance/index.php">
+        </a>
 
-        <span class="material-symbols-rounded">
-            event_available
-        </span>
+        <a href="/fittrack/modules/attendance/index.php">
 
-        Attendance
+            <span class="material-symbols-rounded">
+                event_available
+            </span>
 
-    </a>
+            <span>Attendance</span>
 
-    <a href="/fittrack/modules/reports/index.php">
+        </a>
 
-        <span class="material-symbols-rounded">
-            monitoring
-        </span>
+        <a href="/fittrack/modules/reports/index.php">
 
-        Reports
+            <span class="material-symbols-rounded">
+                monitoring
+            </span>
 
-    </a>
+            <span>Reports</span>
 
-</nav>
+        </a>
+
+    </nav>
 
     <a href="/fittrack/logout.php" class="logout">
 
         <span class="material-symbols-rounded">
+            logout
+        </span>
 
-logout
-
-</span>
-
-Logout
+        <span>Sign Out</span>
 
     </a>
 

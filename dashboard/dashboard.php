@@ -55,61 +55,98 @@ href="../assets/css/dashboard.css">
 
         <div class="card">
 
-            <span class="material-symbols-rounded icon">
+    <div class="card-top">
+
+        <div class="icon-circle">
+
+            <span class="material-symbols-rounded">
+
                 group
+
             </span>
-
-            <h4>Active Members</h4>
-
-            <h2><?= $totalMembers ?></h2>
-
-            <small>Live Member Count</small>
 
         </div>
 
+    </div>
+
+    <h4>Active Members</h4>
+
+    <h2><?= $totalMembers ?></h2>
+
+    <small>Currently Registered</small>
+
+</div>
         <div class="card">
 
-            <span class="material-symbols-rounded icon">
+    <div class="card-top">
+
+        <div class="icon-circle">
+
+            <span class="material-symbols-rounded">
+
                 payments
+
             </span>
-
-            <h4>Monthly Revenue</h4>
-
-
-            <h2>₱<?= number_format($monthlyRevenue,2) ?></h2>
-
-            <small>Updated Automatically</small>
 
         </div>
 
+    </div>
+
+    <h4>Monthly Revenue</h4>
+
+    <h2>₱<?= number_format($monthlyRevenue,2) ?></h2>
+
+    <small>Latest Collection</small>
+
+</div>
+
         <div class="card">
 
-            <span class="material-symbols-rounded icon">
+    <div class="card-top">
+
+        <div class="icon-circle">
+
+            <span class="material-symbols-rounded">
+
                 event_available
+
             </span>
 
-            <h4>Today's Attendance</h4>
-
-            <h2><?= $todayAttendance ?></h2>
-
-            <small>Today's Check-ins</small>
-
         </div>
+
+    </div>
+
+    <h4>Today's Attendance</h4>
+
+    <h2><?= $todayAttendance ?></h2>
+
+    <small>Checked In Today</small>
+
+</div>
 
         <div class="card">
 
-            <span class="material-symbols-rounded icon">
+    <div class="card-top">
+
+        <div class="icon-circle">
+
+            <span class="material-symbols-rounded">
+
                 warning
+
             </span>
-
-            <h4>Expiring Soon</h4>
-
-            <h2><?= $expiring ?></h2>
-
-            <small>Upcoming Renewals</small>
 
         </div>
 
+    </div>
+
+    <h4>Expiring Soon</h4>
+
+    <h2><?= $expiring ?></h2>
+
+    <small>Needs Renewal</small>
+
+</div>
     </div>
 
 </section>
